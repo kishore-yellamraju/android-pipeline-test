@@ -9,6 +9,7 @@ pipeline{
         stage('build debug app'){
             steps{
                 echo 'generating debug app'
+                sh './gradlew clean'
                 sh './gradlew assembleDebug'
             }
         }
