@@ -1,14 +1,18 @@
 pipeline{
-  agent{
-    any
-  }
-  stages {
-    stage('build') {
-    echo 'cloning reprositery'
+    agent{
+        any
     }
-    stage('Buils debug apk') {
-    echo 'generating apk'
-    sh './gradlew assembleDebug'
+    stages{
+        stage('build'){
+            steps{
+                echo 'cloning reprositery'
+            }
+        }
+        stage('build debug app'){
+            steps{
+                echo 'generating debug app'
+                sh './gradlew assembleDebug'
+            }
+        }
     }
-}
 }
